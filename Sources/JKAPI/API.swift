@@ -52,7 +52,7 @@ public protocol API: NSObjectProtocol {
     
     
     /// 请求成功时返回的原始数据
-    var responseObject: String? { get set }
+    var responseObject: Data? { get set }
     
     
     /// 请求失败时返回的错误信息
@@ -132,9 +132,10 @@ public extension API {
     func request() {
         
         shouldRequest()
-        resuestTask = AF.request(url, method: method, parameters: param, headers: header).responseString(completionHandler: { (response) in
-            self.didResponse(response: response)
-        })
+        resuestTask = AF.request(url, method: method, parameters: param, headers: header).responseData { (responseData) in
+            
+            self.didResponse(response: responseData)
+        }
         
     }
     
@@ -158,7 +159,7 @@ public extension API {
     
     
     /// 请求结束，处理结果
-    func didResponse(response: AFDataResponse<String>) {
+    func didResponse(response: AFDataResponse<Data>) {
         
         // * group
         if let group = taskGroup {
@@ -194,8 +195,8 @@ public extension API {
         }
         
         var resultObject: Result? = nil
-        if let str = responseObject {
-            resultObject = Result.fromJsonString(str)
+        if let data = responseObject {
+            resultObject = Result.fromJsonData(data)
         }
         if let callback = didSuccessCallback {
             callback(resultObject)
