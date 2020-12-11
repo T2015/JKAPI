@@ -44,6 +44,7 @@ public protocol HudTarget {
     /// 成功时
     func hudSuccess(api: Any)
     
+    
     /// 失败时
     func hudFaulure(api: Any)
     
