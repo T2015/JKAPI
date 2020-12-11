@@ -17,13 +17,13 @@ import Foundation
 public struct HudOption: OptionSet {
     public let rawValue: Int
     
-    static let loading = HudOption(rawValue: 1 << 0)
-    static let success = HudOption(rawValue: 1 << 1)
-    static let failure = HudOption(rawValue: 1 << 2)
+    public static let loading = HudOption(rawValue: 1 << 0)
+    public static let success = HudOption(rawValue: 1 << 1)
+    public static let failure = HudOption(rawValue: 1 << 2)
     
-    static let none: HudOption = []
-    static let end: HudOption = [.success, .failure]
-    static let all: HudOption = [.loading, .success, .failure]
+    public static let none: HudOption = []
+    public static let end: HudOption = [.success, .failure]
+    public static let all: HudOption = [.loading, .success, .failure]
     
     
     public init(rawValue: Int) {
