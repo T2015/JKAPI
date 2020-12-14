@@ -12,6 +12,9 @@ JKAPI<[Model]>().set(name: "测试接口").set(url: <##您的链接##>).set(meth
 
 ```
 
+## 用法
+
+> SPM : https://github.com/T2015/JKAPI.git
 
 
 
