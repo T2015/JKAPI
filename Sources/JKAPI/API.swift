@@ -196,7 +196,7 @@ public extension API {
         
         var resultObject: Result? = nil
         if let data = responseObject {
-            resultObject = Result.fromJson(data)
+            resultObject = Result.fromData(data)
         }
         if let callback = didSuccessCallback {
             callback(resultObject)
