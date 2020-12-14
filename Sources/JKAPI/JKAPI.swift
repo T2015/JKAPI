@@ -22,35 +22,35 @@ import JKCodable
 
 
 
-class JKAPI<T: Codable>: NSObject, API {
+public class JKAPI<T: Codable>: NSObject, API {
     
-    typealias Result = JKResponse<T>
+    public typealias Result = JKResponse<T>
     
-    var name: String = "未命名"
+    public var name: String = "未命名"
     
-    var url: String = "未指定"
+    public var url: String = "未指定"
     
-    var param: [String : Any]?
+    public var param: [String : Any]?
     
-    var header: HTTPHeaders?
+    public var header: HTTPHeaders?
     
-    var method: HTTPMethod = .get
+    public var method: HTTPMethod = .get
     
-    var hudOption: HudOption = .none
+    public var hudOption: HudOption = .none
     
-    var hudTarget: HudTarget?
+    public var hudTarget: HudTarget?
     
-    var taskGroup: TaskGroup?
+    public var taskGroup: TaskGroup?
     
-    var didSuccessCallback: ((JKResponse<T>?) -> Void)?
+    public var didSuccessCallback: ((JKResponse<T>?) -> Void)?
     
-    var didFailureCallbakc: ((Error?) -> Void)?
+    public var didFailureCallbakc: ((Error?) -> Void)?
     
-    var resuestTask: Request?
+    public var resuestTask: Request?
     
-    var responseObject: Data?
+    public var responseObject: Data?
     
-    var error: Error?
+    public var error: Error?
     
     
 }
@@ -58,7 +58,7 @@ class JKAPI<T: Codable>: NSObject, API {
 
 
 
-struct JKResponse<T: Codable>: Codable {
+public struct JKResponse<T: Codable>: Codable {
     
     
     public var code: Int? = 0
